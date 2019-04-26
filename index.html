@@ -2,14 +2,68 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Brandon Williams</title>
-        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Personal website of really cool guy Brandon Williams.">
+        <meta name="author" content="Brandon Williams">
+<!--        <link rel="icon" href="favicon.ico">-->
+        <title>Homepage</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <div>
-            <h1>Here's my personal site</h1>
-            <p>[insert resume here]</p>
-        </div>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">Welcome</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resume.html">Resume</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main">
+
+            <!-- Main jumbotron for a primary marketing message or call to action -->
+            <div class="jumbotron">
+                <div class="container">
+                    <h1 class="display-3">Hello, world!</h1>
+                    <p>Welcome to my website. It is currently under construction, but expect something wonderful in the future.</p>
+                </div>
+            </div>
+
+            <div class="container">
+                <!-- Example row of columns -->
+                <div class="row">
+                    <div class="col-md-4">
+                        <h2><img src="res/asonus.png" alt="Asonus Tech Logo" style="width:184px;height:56px;"/></h2>
+                        <p>Asonus Tech is a startup dedicated to helping those who are hard of hearing. I am one of the software developers working on creating apps for wearable devices which alert the user of important sounds within their environment. </p>
+                        <p><a class="btn btn-secondary" href="https://asonustech.com/" role="button">Visit Site &raquo;</a></p>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>Github</h2>
+                        <p>Here is a collection of my public repositories.</p>
+                        <p><a class="btn btn-secondary" href="https://github.com/bran-williams" role="button">View details &raquo;</a></p>
+                    </div>
+                </div>
+
+                <hr>
+
+            </div>
+
+        </main>
+        <!-- JQUERY & POPPER & BOOTSTRAP JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-slim.min.js"><\/script>')</script>
+        <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
     </body>
 </html>

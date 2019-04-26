@@ -1,3 +1,9 @@
-div {
-    font-family: 'Noto Sans SC', sans-serif;
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+body {
+    padding-top: 3.5rem;
+}
+
+.resume_div {
+    padding: 3rem 1.5rem;
+    text-align: center;
 }
