@@ -64,8 +64,8 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Goodbye World</h3>
-                <p class="card-text"> <span class="flask-moment" data-timestamp="2020-01-14T00:00:00Z" data-format="format('LLL')" data-refresh="0" style="display: none">2020-01-14T00:00:00Z</span></p>
+                <h3 class="card-title">Running a Bundi Module</h3>
+                <p class="card-text"> <span class="flask-moment" data-timestamp="2020-02-03T00:00:00Z" data-format="format('LLL')" data-refresh="0" style="display: none">2020-02-03T00:00:00Z</span></p>
             </div>
 
             <div class="card-body">
@@ -192,7 +192,7 @@ $(document).ready(function() {
             return md.render(data);
         };
 
-        markdownInput = "**Goodbye World**, from a *page*!\n\n~~~python\ndef init():\n    print(\"This is a test\")\n~~~\n\nThe above code is written in Python.";
+        markdownInput = "This article is meant to provide a brief rundown on how to run a module for the project [Bundi](https://github.com/bran-williams/bundi).\n\n\n\n";
         const result = parseOutput(parserMethod(markdownInput));
         document.getElementById('page-body').innerHTML = result;
     </script>
