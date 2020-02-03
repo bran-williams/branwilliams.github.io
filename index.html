@@ -1,69 +1,148 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="Personal website of really cool guy Brandon Williams.">
-        <meta name="author" content="Brandon Williams">
-<!--        <link rel="icon" href="favicon.ico">-->
-        <title>Homepage</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
-        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="#">Welcome</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="resume.html">Resume</a>
-                    </li>
-                </ul>
+    <!-- Material Design for Bootstrap fonts and icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+    <!-- Include bootstrap 4.4 since the python library is 4.04 :( -->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+
+    <link rel="shortcut icon" href="/static/favicon3.ico"
+          type="image/x-icon">
+    <link rel="icon" href="/static/favicon3.ico"
+          type="image/x-icon">
+
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm mb-3">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="/resume.html">Resume <i class="fas fa-link"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    
+    <main role="main">
+
+        <!-- Render all 'flashed' messages. -->
+        
+
+        <!-- Override me in the implementation documents! -->
+        
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Hello, world!</h1>
+                <p class="lead">This is the personal website of Brandon Williams.</p>
             </div>
-        </nav>
+        </div>
 
-        <main role="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Asonus Tech</h2>
+                    <p>Asonus Tech is a startup dedicated to helping those who are hard of hearing. I am one of the
+                        software developers working on creating apps for wearable devices which alert the user of
+                        important sounds within their environment. </p>
+                    <p><a class="btn btn-primary" href="https://asonustech.com/" role="button">View details &raquo;</a>
+                    </p>
+                </div>
 
-            <!-- Main jumbotron for a primary marketing message or call to action -->
-            <div class="jumbotron">
-                <div class="container">
-                    <h1 class="display-3">Hello, world!</h1>
-                    <p>Welcome to my website. It is currently under construction, but expect something wonderful in the future.</p>
+                <div class="col-md-4">
+                    <h2>Github</h2>
+                    <p>Here is a collection of my public repositories. </p>
+                    <p><a class="btn btn-primary" href="https://github.com/bran-williams" role="button">View details
+                        &raquo;</a></p>
                 </div>
             </div>
+            <hr/>
 
             <div class="container">
-                <!-- Example row of columns -->
-                <div class="row">
-                    <div class="col-md-4">
-                        <h2><img src="res/asonus.png" alt="Asonus Tech Logo" style="width:184px;height:56px;"/></h2>
-                        <p>Asonus Tech is a startup dedicated to helping those who are hard of hearing. I am one of the software developers working on creating apps for wearable devices which alert the user of important sounds within their environment. </p>
-                        <p><a class="btn btn-secondary" href="https://asonustech.com/" role="button">Visit Site &raquo;</a></p>
-                    </div>
-                    <div class="col-md-4">
-                        <h2>Github</h2>
-                        <p>Here is a collection of my public repositories.</p>
-                        <p><a class="btn btn-secondary" href="https://github.com/bran-williams" role="button">View details &raquo;</a></p>
-                    </div>
-                </div>
-
-                <hr>
-
+                <h1 class="text-left">Articles</h1>
+                <ul class="list-group list-group-flush">
+                    
+                        
+                            <a class="list-group-item" href="/bigexample/">
+                                <div class="bmd-list-group-col">
+                                    <p class="list-group-item-heading">Big Example</p>
+                                    <p class="list-group-item-text"><span class="flask-moment" data-timestamp="2020-01-31T00:00:00Z" data-format="format('LLL')" data-refresh="0" style="display: none">2020-01-31T00:00:00Z</span></p>
+                                </div>
+                            </a>
+                        
+                            <a class="list-group-item" href="/goodbyeworld/">
+                                <div class="bmd-list-group-col">
+                                    <p class="list-group-item-heading">Goodbye World</p>
+                                    <p class="list-group-item-text"><span class="flask-moment" data-timestamp="2020-01-14T00:00:00Z" data-format="format('LLL')" data-refresh="0" style="display: none">2020-01-14T00:00:00Z</span></p>
+                                </div>
+                            </a>
+                        
+                            <a class="list-group-item" href="/helloworld/">
+                                <div class="bmd-list-group-col">
+                                    <p class="list-group-item-heading">Hello World</p>
+                                    <p class="list-group-item-text"><span class="flask-moment" data-timestamp="2020-01-01T00:00:00Z" data-format="format('LLL')" data-refresh="0" style="display: none">2020-01-01T00:00:00Z</span></p>
+                                </div>
+                            </a>
+                        
+                    
+                </ul>
             </div>
+            <hr/>
 
-        </main>
-        <!-- JQUERY & POPPER & BOOTSTRAP JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-slim.min.js"><\/script>')</script>
-        <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
-    </body>
+            <div class="container">
+                <h1 class="bd-title">Contact</h1>
+                <p class="bd-lead">Contact me at <a href="mailto:brandon-williams@asonustech.com">brandon-williams@asonustech.com</a>.
+                </p>
+            </div>
+            <hr/>
+
+        </div>
+
+    </div>
+
+    </main>
+
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js" integrity="sha256-AdQN98MVZs44Eq2yTwtoKufhnU+uZ7v2kXnD5vqzZVo=" crossorigin="anonymous"></script>
+<script>
+moment.locale("en");
+function flask_moment_render(elem) {
+    $(elem).text(eval('moment("' + $(elem).data('timestamp') + '").' + $(elem).data('format') + ';'));
+    $(elem).removeClass('flask-moment').show();
+}
+function flask_moment_render_all() {
+    $('.flask-moment').each(function() {
+        flask_moment_render(this);
+        if ($(this).data('refresh')) {
+            (function(elem, interval) { setInterval(function() { flask_moment_render(elem) }, interval); })(this, $(this).data('refresh'));
+        }
+    })
+}
+$(document).ready(function() {
+    flask_moment_render_all();
+});
+</script>
+
+  </body>
 </html>
