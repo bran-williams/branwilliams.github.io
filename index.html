@@ -4,6 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
 
     <!-- Material Design for Bootstrap fonts and icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
@@ -14,6 +15,8 @@
 
     <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
   </head>
   <body>
@@ -42,9 +45,12 @@
         
     <div class="container">
         <div class="jumbotron jumbotron-fluid">
+
             <div class="container">
-                <h1 class="display-4">Hello, world!</h1>
-                <p class="lead">This is the personal website of Brandon Williams.</p>
+                <h1 id="motp" class="display-4 animated fadeInDown"></h1>
+                <p class="lead animated fadeInDown">
+                    This is the personal website of Brandon Williams.
+                </p>
             </div>
         </div>
 
@@ -69,7 +75,7 @@
             <hr/>
 
             <div class="container">
-                <h1 class="text-left">Articles</h1>
+                <h1 class="text-left">Links</h1>
                 <ul class="list-group list-group-flush">
                     
                         
@@ -106,20 +112,43 @@
             </div>
             <hr/>
 
-            <div class="container">
-                <h1 class="bd-title">Contact</h1>
-                <p class="bd-lead">Contact me at <a href="mailto:brandon-williams@asonustech.com">brandon-williams@asonustech.com</a>.
-                </p>
-            </div>
-            <hr/>
-
         </div>
 
     </div>
 
     </main>
 
+    <footer class="page-footer font-small special-color-dark pt-4">
+        <div class="container">
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                    <a href="https://twitter.com/MrBrandonW">
+                    <button type="button" class="btn btn-primary bmd-btn-fab">
+                        <i class="fab fa-twitter"> </i>
+                    </button>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="https://www.linkedin.com/in/brandon-williams-95b870186/">
+                        <button type="button" class="btn btn-primary bmd-btn-fab">
+                              <i class="fab fa-linkedin-in"> </i>
+                        </button>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
+        <div class="container text-center">
+            <a href="mailto:brandon-williams@asonustech.com">brandon-williams@asonustech.com</a>
+        </div>
+
+        <div class="footer-copyright text-center py-3">© 2020 Copyright
+            <a href="http://branwilliams.com/"> branwilliams.com</a>
+        </div>
+    </footer>
+
+
+    
     
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -146,6 +175,61 @@ $(document).ready(function() {
     flask_moment_render_all();
 });
 </script>
+
+    <script>
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function eraseCookie(name) {
+            document.cookie = name + '=; Max-Age=-99999999;';
+        }
+
+        var motps = [
+            "Hello, world!",
+            "Landing page",
+            "Beep, boop",
+            "Pineapples belong on pizza"
+        ];
+
+        function getMotpsIndex() {
+            return Math.floor(Math.random() * motps.length);
+        }
+
+        var motpsIndex = getMotpsIndex();
+
+        var lastMotpsIndex = getCookie("bwlastmotps");
+
+        if (lastMotpsIndex == null) {
+            motpsIndex = 0;
+        } else {
+            while (lastMotpsIndex == motpsIndex) {
+                motpsIndex = getMotpsIndex();
+            }
+        }
+
+        setCookie("bwlastmotps", motpsIndex, 4);
+        var randomMotp = motps[motpsIndex];
+        $("#motp").html(randomMotp);
+
+    </script>
 
   </body>
 </html>
