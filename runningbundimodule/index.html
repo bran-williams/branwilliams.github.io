@@ -47,8 +47,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="/resume.html">Resume <i class="fas fa-link"></i></a></li>
-                <li class="nav-item"><a class="nav-link" href="/gallery.html">Gallery</a></li>
-
+                <li class="nav-item"><a class="nav-link" href="/bundigallery.html">Bundi Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="/bobross.html">Bob Ross</a></li>
             </ul>
         </div>
     </nav>
@@ -223,7 +223,7 @@ $(document).ready(function() {
             return md.render(data);
         };
 
-        markdownInput = "This article is meant to provide a brief rundown on how to run a module for the project [Bundi](https://github.com/bran-williams/bundi).\n\n\n\n";
+        markdownInput = "*[Submodule]: Submodules are defined in the IntelliJ IDE and they are located in the root directory of this project.\n*[Main class]: This is the class containing the main(String[]) function. It is the applications entry point.\n*[Launch Config]: A launch configuration tells the engine which scene to start as well as other important metadata.\n\nThis article is meant to provide a brief rundown on how to run a submodule for the project [Bundi](https://github.com/bran-williams/bundi).\n\nThe following table are the individual submodules currently within the project. \n\n**Submodule**  | **Main class** | **Launch Config**\n-------------- | -------------- | -------------- \nvoxel          | com.branwilliams.bundi.voxel.VoxelMain | voxel.json\npbr            | com.branwilliams.bundi.pbr.PbrMain     | pbr_launch.json\nmarchingcubes  | com.branwilliams.cubes.CubesMain       | cubes.json\nwater          | com.branwilliams.bundi.water.WaterMain | water.json\nterrain        | com.branwilliams.terrain.TerrainMain   | terrain_launch.json\ncloth          | com.branwilliams.bundi.cloth.ClothMain | cloth.json\n\n\n### IntelliJ\n- To run a submodule, it is essential to create a new run configuration.\n    * New Run Configuration... -\u003e Application\n\n- Give it a name, set the main class to whatever main class is defined within the submodule of interest.\n\n- Set **Working Directory** to `/run/`.\n\n- The launcher expects a launch configuration, so set the **Program Arguments** to the path of a launch configuration. Remember, this is relative to the working directory.\n\n- Set **Module** to the submodule of interest.\n\n\n\n";
         const result = parseOutput(parserMethod(markdownInput));
         document.getElementById('page-body').innerHTML = result;
     </script>

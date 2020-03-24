@@ -47,8 +47,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="/resume.html">Resume <i class="fas fa-link"></i></a></li>
-                <li class="nav-item"><a class="nav-link" href="/gallery.html">Gallery</a></li>
-
+                <li class="nav-item"><a class="nav-link" href="/bundigallery.html">Bundi Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="/bobross.html">Bob Ross</a></li>
             </ul>
         </div>
     </nav>
@@ -223,7 +223,7 @@ $(document).ready(function() {
             return md.render(data);
         };
 
-        markdownInput = "This website is hosted on [Github pages](https://github.com/bran-williams/branwilliams.github.io) and it is written in Python using the [Flask](https://www.palletsprojects.com/p/flask/) framework. The [Flask-Frozen](https://pythonhosted.org/Frozen-Flask/) extension is used to render the web application to static HTML/CSS/JS.\n\nBelow are two resources which I found extremely helpful when developing this.\n\n---\n\nBook Title    | ISBN\n------------- | -------------\nFlask Web Development: Developing Web Applications with Python (2nd)    | 978-1491991732\n\n\nArticle Title | Link\n------------- | -------------\nDead easy yet powerful static website generator with Flask | https://nicolas.perriault.net/code/2012/dead-easy-yet-powerful-static-website-generator-with-flask/\n\n";
+        markdownInput = "This website is hosted on [Github pages](https://github.com/bran-williams/branwilliams.github.io) and it is written in Python using the [Flask](https://www.palletsprojects.com/p/flask/) framework. The [Flask-Frozen](https://pythonhosted.org/Frozen-Flask/) extension is used to render the web application to static HTML/CSS/JS.\n\nBelow are two resources which I found extremely helpful when developing this.\n\n---\n#### Books\n  * Flask Web Development: Developing Web Applications with Python (2nd)\n  \n#### Articles\n  * https://nicolas.perriault.net/code/2012/dead-easy-yet-powerful-static-website-generator-with-flask/\n";
         const result = parseOutput(parserMethod(markdownInput));
         document.getElementById('page-body').innerHTML = result;
     </script>
