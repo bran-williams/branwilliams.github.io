@@ -29,8 +29,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="/resume.html">Resume <i class="fas fa-link"></i></a></li>
-                <li class="nav-item"><a class="nav-link" href="/bundigallery.html">Bundi Gallery</a></li>
-                <li class="nav-item"><a class="nav-link" href="/bobross.html">Bob Ross</a></li>
+
+
             </ul>
         </div>
     </nav>
@@ -77,11 +77,25 @@
             <hr/>
 
             <div class="container">
+                <h1 class="text-left">Galleries</h1>
+                <div id="gallery-group" class="row">
+                </div>
+
+                <div class="mt-2">
+                    <nav aria-label="Gallery pagination">
+                        <ul id="gallery-pagination" class="pagination justify-content-center">
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <hr/>
+
+            <div class="container">
                 <h1 class="text-left">Links</h1>
                 <ul id="link-group" class="list-group list-group-flush">
                 </ul>
 
-                <nav aria-label="Page navigation example">
+                <nav aria-label="Link pagination">
                     <ul id="link-pagination" class="pagination justify-content-center">
                     </ul>
                 </nav>
@@ -214,6 +228,88 @@ $(document).ready(function() {
         var randomMotp = motps[motpsIndex];
         $("#motp").html(randomMotp);
 
+
+        
+
+            // Load all of the articles as a javascript object.
+            var galleries = [];
+            
+                galleries.push({
+                    "url" : "/bobross.html/",
+                    "title" : "Bob Ross Colors",
+                    "description" : "Here is a quick reference for the colors used by Bob Ross.",
+                    "preview": "https://via.placeholder.com/150"
+                });
+            
+                galleries.push({
+                    "url" : "/bundigallery.html/",
+                    "title" : "Bundi Screenshots",
+                    "description" : "These are screenshots taken within my project \u0027Bundi\u0027.",
+                    "preview": "https://raw.githubusercontent.com/bran-williams/bundi/master/screenshots/waterlogo.png"
+                });
+            
+
+            const galleriesPerPage = 3;
+            const galleryGroup = $("#gallery-group");
+            const galleryPaginationGroup = $("#gallery-pagination");
+
+            /**
+             * Populates the links within the links section.
+             * */
+            function setGalleryPage(pageIndex) {
+                galleryGroup.empty();
+
+                let index = pageIndex * galleriesPerPage;
+                let endIndex = Math.min(index + galleriesPerPage, galleries.length);
+
+                while (index < endIndex) {
+                    const gallery = galleries[index];
+
+                    if (typeof gallery === "undefined") {
+                        console.log("Unable to find gallery for galleryIndex=" + (pageIndex * galleriesPerPage + i));
+                        return;
+                    }
+
+                    const galleryLink = "<div class=\"col-md-4 mt-4\">" +
+                        "<div class=\"card\">" +
+                        "<a href=\"" + gallery.url + "\">" +
+                        "<img src=\"" + gallery.preview + "\" class=\"card-img-top\" alt=\"\">" +
+                        "</a>" +
+                        "<div class=\"card-body\">" +
+                        "<h5 class=\"card-title\">" + gallery.title + "</h5>" +
+                        "<p class=\"card-text\">" + gallery.description + "</p>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>";
+                    galleryGroup.append(galleryLink);
+                    index++;
+                }
+
+                // If possible, re-render the timestamps
+                if (typeof flask_moment_render_all === "function") {
+                    flask_moment_render_all();
+                }
+            }
+
+            // Populate the pagination group with page items that will reload new pages.
+            // Only populate the pagination group if the number of articles is less than the number of links per page.
+            if (galleries.length > galleriesPerPage) {
+                const numPages = Math.ceil(galleries.length / galleriesPerPage);
+
+                for (let i = 0; i < numPages; i++) {
+                    let galleryItemId = "gallery-item-" + i;
+                    galleryPaginationGroup.append("<li id=\"" + galleryItemId + "\" class=\"page-item\"><a class=\"page-link\" href=\"#gallery-group\">" + (i + 1) + "</a></li>");
+                    $("#" + galleryItemId).click(function () {
+                        setGalleryPage(i);
+                        $(this).addClass("active").siblings().removeClass("active");
+                    });
+                }
+            }
+
+            // start off on the first page.
+            setGalleryPage(0);
+            $("#gallery-item-0").addClass("active");
+        
 
 
 
