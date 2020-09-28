@@ -57,14 +57,6 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <h2>Asonus Tech</h2>
-                    <p>Asonus Tech is a startup dedicated to helping those who are hard of hearing. I am one of the
-                        software developers working on creating apps for wearable devices which alert the user of
-                        important sounds within their environment. </p>
-                    <p><a class="btn btn-primary" href="https://asonustech.com/" role="button">View details &raquo;</a>
-                    </p>
-                </div>
 
                 <div class="col-md-4">
                     <h2>Bundi</h2>
@@ -148,11 +140,23 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
     <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js" integrity="sha256-AdQN98MVZs44Eq2yTwtoKufhnU+uZ7v2kXnD5vqzZVo=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment-with-locales.min.js" integrity="sha384-WxkyfzCCre+H1hXpoMH2JOqSotIuNoiH5KQ4zCQxIxOSHo49PeKFlgftAkREuLTR" crossorigin="anonymous"></script>
 <script>
 moment.locale("en");
 function flask_moment_render(elem) {
-    $(elem).text(eval('moment("' + $(elem).data('timestamp') + '").' + $(elem).data('format') + ';'));
+    timestamp = moment($(elem).data('timestamp'));
+    func = $(elem).data('function');
+    format = $(elem).data('format');
+    timestamp2 = $(elem).data('timestamp2');
+    no_suffix = $(elem).data('nosuffix');
+    args = [];
+    if (format)
+        args.push(format);
+    if (timestamp2)
+        args.push(moment(timestamp2));
+    if (no_suffix)
+        args.push(no_suffix);
+    $(elem).text(timestamp[func].apply(timestamp, args));
     $(elem).removeClass('flask-moment').show();
 }
 function flask_moment_render_all() {
@@ -321,19 +325,19 @@ $(document).ready(function() {
                 articles.push({
                     "url" : "/buildingthissite/",
                     "title" : "Building This Site",
-                    "published" : "\u003cspan class=\"flask-moment\" data-timestamp=\"2020-02-09T00:00:00Z\" data-format=\"format(\u0027LL\u0027)\" data-refresh=\"0\" style=\"display: none\"\u003e2020-02-09T00:00:00Z\u003c/span\u003e"
+                    "published" : "\u003cspan class=\"flask-moment\" data-timestamp=\"2020-02-09T00:00:00Z\" data-function=\"format\" data-format=\"LL\" data-refresh=\"0\" style=\"display: none\"\u003e2020-02-09T00:00:00Z\u003c/span\u003e"
                 });
             
                 articles.push({
                     "url" : "/runningbundimodule/",
                     "title" : "Running a Bundi Module",
-                    "published" : "\u003cspan class=\"flask-moment\" data-timestamp=\"2020-02-03T00:00:00Z\" data-format=\"format(\u0027LL\u0027)\" data-refresh=\"0\" style=\"display: none\"\u003e2020-02-03T00:00:00Z\u003c/span\u003e"
+                    "published" : "\u003cspan class=\"flask-moment\" data-timestamp=\"2020-02-03T00:00:00Z\" data-function=\"format\" data-format=\"LL\" data-refresh=\"0\" style=\"display: none\"\u003e2020-02-03T00:00:00Z\u003c/span\u003e"
                 });
             
                 articles.push({
                     "url" : "/helloworld/",
                     "title" : "Hello World",
-                    "published" : "\u003cspan class=\"flask-moment\" data-timestamp=\"2020-01-01T00:00:00Z\" data-format=\"format(\u0027LL\u0027)\" data-refresh=\"0\" style=\"display: none\"\u003e2020-01-01T00:00:00Z\u003c/span\u003e"
+                    "published" : "\u003cspan class=\"flask-moment\" data-timestamp=\"2020-01-01T00:00:00Z\" data-function=\"format\" data-format=\"LL\" data-refresh=\"0\" style=\"display: none\"\u003e2020-01-01T00:00:00Z\u003c/span\u003e"
                 });
             
 
