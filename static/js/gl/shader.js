@@ -1,7 +1,7 @@
-export function shader(gl) {
+function shader(gl) {
     return new ShaderBuilder(gl);
 }
-export class ShaderBuilder {
+class ShaderBuilder {
 
     #vertexShader = "";
     #fragmentShader = "";
@@ -31,7 +31,7 @@ export class ShaderBuilder {
     }
 }
 
-export class ShaderProgram {
+class ShaderProgram {
     static NO_GL_ID = -1;
 
     #glId = ShaderProgram.NO_GL_ID;

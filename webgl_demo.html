@@ -4,6 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
 
     <!-- Material Design for Bootstrap fonts and icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
@@ -12,6 +13,20 @@
 
     <link rel="shortcut icon" href="/static/icon/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/static/icon/favicon.ico" type="image/x-icon">
+
+    <style>
+        canvas {
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            width: 800px;
+        }
+        .jumbotron {
+            background-color: #fafafa;
+        }
+    </style>
 
   </head>
   <body>
@@ -25,9 +40,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="/resume.html">Resume <i class="fas fa-link"></i></a></li>
-
-
+                <li class="nav-item"><a class="nav-link" href="/webgl_demo.html">WebGL Demo</a></li>
             </ul>
         </div>
     </nav>
@@ -41,7 +54,7 @@
         <!-- Override me in the implementation documents! -->
         
     <div class="container">
-        <h1 class="text-left">Resume</h1>
+        <canvas id="glCanvas" width="640" height="480"></canvas>
     </div>
 
     </main>
@@ -56,29 +69,12 @@
                     </button>
                     </a>
                 </li>
-                <li class="list-inline-item">
-                    <a href="https://www.linkedin.com/in/brandon-williams-95b870186/">
-                        <button type="button" class="btn btn-primary bmd-btn-fab">
-                              <i class="fab fa-linkedin-in"> </i>
-                        </button>
-                    </a>
-                </li>
-
-                <li class="list-inline-item">
-                    <a href="mailto:branwilliamsx@gmail.com">
-                        <button type="button" class="btn btn-primary bmd-btn-fab">
-                              <i class="fas fa-envelope"></i>
-                        </button>
-                    </a>
-                </li>
             </ul>
-        </div>
-        <div class="footer-copyright text-center py-3">© 2020 Copyright
-            <a href="http://branwilliams.com/"> branwilliams.com</a>
         </div>
     </footer>
 
 
+    
     
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -116,6 +112,10 @@ $(document).ready(function() {
     flask_moment_render_all();
 });
 </script>
+
+    <script src="/static/js/gl/shader.js"></script>
+    <script src="/static/js/gl/gl-matrix.js"></script>
+    <script src="/static/js/gl/engine.js"></script>
 
   </body>
 </html>

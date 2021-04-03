@@ -33,9 +33,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="/resume.html">Resume <i class="fas fa-link"></i></a></li>
-
-
+                <li class="nav-item"><a class="nav-link" href="/webgl_demo.html">WebGL Demo</a></li>
             </ul>
         </div>
     </nav>
@@ -116,25 +114,7 @@
                     </button>
                     </a>
                 </li>
-                <li class="list-inline-item">
-                    <a href="https://www.linkedin.com/in/brandon-williams-95b870186/">
-                        <button type="button" class="btn btn-primary bmd-btn-fab">
-                              <i class="fab fa-linkedin-in"> </i>
-                        </button>
-                    </a>
-                </li>
-
-                <li class="list-inline-item">
-                    <a href="mailto:branwilliamsx@gmail.com">
-                        <button type="button" class="btn btn-primary bmd-btn-fab">
-                              <i class="fas fa-envelope"></i>
-                        </button>
-                    </a>
-                </li>
             </ul>
-        </div>
-        <div class="footer-copyright text-center py-3">© 2020 Copyright
-            <a href="http://branwilliams.com/"> branwilliams.com</a>
         </div>
     </footer>
 
@@ -179,212 +159,115 @@ $(document).ready(function() {
 </script>
 
     <script src="/static/js/utils.js"></script>
-<script>
+    <script src="/static/js/paginator.js"></script>
+    <script>
+    // "Message of the page"
+    const messages = [
+        [ "Hello, world!", 0 ],
+        [ "BUILD SUCCESSFUL", 8 ],
+        [ "BUILD FAILED", 10 ]
+    ];
 
-// "Message of the page"
-const messages = [
-    [ "Hello, world!", 0 ],
-    [ "BUILD SUCCESSFUL", 8 ],
-    [ "BUILD FAILED", 10 ]
-];
-
-/**
- * Grab a random index from some array.
- * */
-function generateRandomIndex(array) {
-    return Math.floor(Math.random() * array.length);
-}
-
-function getMessageForRefreshCount(refreshCount) {
-    var messageForRefreshCount = messages[0][0];
-    for (message of messages) {
-        if (message[1] <= refreshCount) {
-            messageForRefreshCount = message[0];
-        }
-    }
-    return messageForRefreshCount;
-}
-
-var refreshCount = parseInt(getCookie("bwIndexRefreshCount"));
-if (isNaN(refreshCount) || refreshCount == null) {
-    refreshCount = 0;
-}
-var message = getMessageForRefreshCount(refreshCount);
-
-setCookie("bwIndexRefreshCount", refreshCount + 1, 1, 0);
-
-$("#pageMessage").html(message);
-
-
-
-
-    // Load all of the articles as a javascript object.
-    var galleries = [];
-
-    
-        galleries.push({
-            "url": "/bobross.html/",
-            "title": "Bob Ross Colors",
-            "description": "Here is a quick reference for the colors used by Bob Ross.",
-            "preview": "https://via.placeholder.com/160x90"
-        });
-    
-        galleries.push({
-            "url": "/bundigallery.html/",
-            "title": "Bundi Screenshots",
-            "description": "These are screenshots taken within my project \u0027Bundi\u0027.",
-            "preview": "https://raw.githubusercontent.com/bran-williams/bundi/master/screenshots/waterlogo.png"
-        });
-    
-
-    const galleriesPerPage = 3;
-    const galleryGroup = $("#gallery-group");
-    const galleryPaginationGroup = $("#gallery-pagination");
-
-    /**
-     * Populates the links within the links section.
-     * */
-    function setGalleryPage(pageIndex) {
-        galleryGroup.empty();
-
-        let index = pageIndex * galleriesPerPage;
-        let endIndex = Math.min(index + galleriesPerPage, galleries.length);
-
-        while (index < endIndex) {
-            const gallery = galleries[index];
-
-            if (typeof gallery === "undefined") {
-                console.log("Unable to find gallery for galleryIndex=" + (pageIndex * galleriesPerPage + i));
-                return;
+    function getMessageForRefreshCount(refreshCount) {
+        var messageForRefreshCount = messages[0][0];
+        for (message of messages) {
+            if (message[1] <= refreshCount) {
+                messageForRefreshCount = message[0];
             }
-
-            const galleryLink = "<div class=\"col-md-4 mt-4\">" +
-                "<div class=\"card\">" +
-                "<a href=\"" + gallery.url + "\">" +
-                "<img src=\"" + gallery.preview + "\" class=\"card-img-top\" alt=\"\">" +
-                "</a>" +
-                "<div class=\"card-body\">" +
-                "<h5 class=\"card-title\">" + gallery.title + "</h5>" +
-                "<p class=\"card-text\">" + gallery.description + "</p>" +
-                "</div>" +
-                "</div>" +
-                "</div>";
-            galleryGroup.append(galleryLink);
-            index++;
         }
-
-        // If possible, re-render the timestamps
-        if (typeof flask_moment_render_all === "function") {
-            flask_moment_render_all();
-        }
+        return messageForRefreshCount;
     }
 
-    // Populate the pagination group with page items that will reload new pages.
-    // Only populate the pagination group if the number of articles is less than the number of links per page.
-    if (galleries.length > galleriesPerPage) {
-        const numPages = Math.ceil(galleries.length / galleriesPerPage);
+    var refreshCount = parseInt(getCookie("bwIndexRefreshCount"));
+    if (isNaN(refreshCount) || refreshCount == null) {
+        refreshCount = 0;
+    }
+    var message = getMessageForRefreshCount(refreshCount);
 
-        for (let i = 0; i < numPages; i++) {
-            let galleryItemId = "gallery-item-" + i;
-            galleryPaginationGroup.append("<li id=\"" + galleryItemId + "\" class=\"page-item\"><a class=\"page-link\" href=\"#gallery-group\">" + (i + 1) + "</a></li>");
-            $("#" + galleryItemId).click(function() {
-                setGalleryPage(i);
-                $(this).addClass("active").siblings().removeClass("active");
+    setCookie("bwIndexRefreshCount", refreshCount + 1, 1, 0);
+
+    $("#pageMessage").html(message);
+
+    
+
+        // Load all of the articles as a javascript object.
+        var galleries = [];
+
+        
+            galleries.push({
+                "url": "/bobross/",
+                "title": "Bob Ross Colors",
+                "description": "Here is a quick reference for the colors used by Bob Ross.",
+                "preview": "static/bobross/ross.jpg"
             });
-        }
-    }
-
-    // start off on the first page.
-    setGalleryPage(0);
-    $("#gallery-item-0").addClass("active");
-
-
-
-
-
-
-    // Load all of the articles as a javascript object.
-    var articles = [];
-
-    
-        articles.push({
-            "url": "/buildingthissite/",
-            "title": "Building This Site",
-            "published": "\u003cspan class=\"flask-moment\" data-timestamp=\"2020-02-09T00:00:00Z\" data-function=\"format\" data-format=\"LL\" data-refresh=\"0\" style=\"display: none\"\u003e2020-02-09T00:00:00Z\u003c/span\u003e"
-        });
-    
-        articles.push({
-            "url": "/runningbundimodule/",
-            "title": "Running a Bundi Module",
-            "published": "\u003cspan class=\"flask-moment\" data-timestamp=\"2020-02-03T00:00:00Z\" data-function=\"format\" data-format=\"LL\" data-refresh=\"0\" style=\"display: none\"\u003e2020-02-03T00:00:00Z\u003c/span\u003e"
-        });
-    
-        articles.push({
-            "url": "/helloworld/",
-            "title": "Hello World",
-            "published": "\u003cspan class=\"flask-moment\" data-timestamp=\"2020-01-01T00:00:00Z\" data-function=\"format\" data-format=\"LL\" data-refresh=\"0\" style=\"display: none\"\u003e2020-01-01T00:00:00Z\u003c/span\u003e"
-        });
-    
-
-
-    const linksPerPage = 4;
-    const linkGroup = $("#link-group");
-    const paginationGroup = $("#link-pagination");
-
-    /**
-     * Populates the links within the links section.
-     * */
-    function setPage(pageIndex) {
-        linkGroup.empty();
-
-        let index = pageIndex * linksPerPage;
-        let endIndex = Math.min(index + linksPerPage, articles.length);
-
-        while (index < endIndex) {
-            const article = articles[index];
-
-            if (typeof article === "undefined") {
-                console.log("Unable to find article for articleIndex=" + (pageIndex * linksPerPage + i));
-                return;
-            }
-
-            const link = "<a class=\"list-group-item list-group-item-action\" href=\"" + article.url + "\">" +
-                "<div class=\"bmd-list-group-col\">" +
-                "<p class=\"list-group-item-heading\">" + article.title + "</p>" +
-                "<p class=\"list-group-item-text\">" + article.published + "</p>" +
-                "</div>" +
-                "</a>";
-            linkGroup.append(link);
-            index++;
-        }
-
-        // If possible, re-render the timestamps
-        if (typeof flask_moment_render_all === "function") {
-            flask_moment_render_all();
-        }
-    }
-
-    // Populate the pagination group with page items that will reload new pages.
-    // Only populate the pagination group if the number of articles is less than the number of links per page.
-    if (articles.length > linksPerPage) {
-        const numPages = Math.ceil(articles.length / linksPerPage);
-
-        for (let i = 0; i < numPages; i++) {
-            let pageItemId = "page-item-" + i;
-            paginationGroup.append("<li id=\"" + pageItemId + "\" class=\"page-item\"><a class=\"page-link\" href=\"#link-group\">" + (i + 1) + "</a></li>");
-            $("#" + pageItemId).click(function() {
-                setPage(i);
-                $(this).addClass("active").siblings().removeClass("active");
+        
+            galleries.push({
+                "url": "/bundigallery/",
+                "title": "Bundi Screenshots",
+                "description": "These are screenshots taken within my project \u0027Bundi\u0027.",
+                "preview": "https://raw.githubusercontent.com/bran-williams/bundi/master/screenshots/waterlogo.png"
             });
+        
+
+        function buildGalleryItem(gallery) {
+            return "<div class=\"col-md-4 mt-4\">" +
+                    "<div class=\"card\">" +
+                    "<a href=\"" + gallery.url + "\">" +
+                    "<img src=\"" + gallery.preview + "\" class=\"card-img-top\" alt=\"\">" +
+                    "</a>" +
+                    "<div class=\"card-body\">" +
+                    "<h5 class=\"card-title\">" + gallery.title + "</h5>" +
+                    "<p class=\"card-text\">" + gallery.description + "</p>" +
+                    "</div>" +
+                    "</div>" +
+                    "</div>";
         }
-    }
 
-    // start off on the first page.
-    setPage(0);
-    $("#page-item-0").addClass("active");
+        let galleryPaginator = new Paginator(galleries, 3, buildGalleryItem, "gallery-item-", "#gallery-group",
+                                          "#gallery-pagination");
+        galleryPaginator.init();
+    
 
+    
 
-</script>
+        // Load all of the articles as a javascript object.
+        var articles = [];
+
+        
+            articles.push({
+                "url": "/buildingthissite/",
+                "title": "Building This Site",
+                "published": "\u003cspan class=\"flask-moment\" data-timestamp=\"2020-02-09T00:00:00Z\" data-function=\"format\" data-format=\"LL\" data-refresh=\"0\" style=\"display: none\"\u003e2020-02-09T00:00:00Z\u003c/span\u003e"
+            });
+        
+            articles.push({
+                "url": "/runningbundimodule/",
+                "title": "Running a Bundi Module",
+                "published": "\u003cspan class=\"flask-moment\" data-timestamp=\"2020-02-03T00:00:00Z\" data-function=\"format\" data-format=\"LL\" data-refresh=\"0\" style=\"display: none\"\u003e2020-02-03T00:00:00Z\u003c/span\u003e"
+            });
+        
+            articles.push({
+                "url": "/helloworld/",
+                "title": "Hello World",
+                "published": "\u003cspan class=\"flask-moment\" data-timestamp=\"2020-01-01T00:00:00Z\" data-function=\"format\" data-format=\"LL\" data-refresh=\"0\" style=\"display: none\"\u003e2020-01-01T00:00:00Z\u003c/span\u003e"
+            });
+        
+
+        function buildArticleItem(article) {
+            return "<a class=\"list-group-item list-group-item-action\" href=\"" + article.url + "\">" +
+                    "<div class=\"bmd-list-group-col\">" +
+                    "<p class=\"list-group-item-heading\">" + article.title + "</p>" +
+                    "<p class=\"list-group-item-text\">" + article.published + "</p>" +
+                    "</div>" +
+                    "</a>";
+        }
+
+        let articlePaginator = new Paginator(articles, 4, buildArticleItem, "page-item-", "#link-group",
+                                          "#link-pagination");
+        articlePaginator.init();
+    
+
+    </script>
 
   </body>
 </html>

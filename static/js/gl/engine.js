@@ -1,9 +1,3 @@
-//import { shader } from './shader.js';
-//import * as glm from "./gl-matrix.js";
-
-import {shader} from "./shader.js";
-import "./gl/gl-matrix.js";
-
 const mat4 = glMatrix.mat4;
 
 const vsSource = `
@@ -43,9 +37,8 @@ function main() {
         return;
     }
 
-    // Set clear color to black, fully opaque
+
     gl.clearColor(0.0, 0.75, 1.0, 1.0);
-    // Clear the color buffer with specified clear color
     gl.clear(gl.COLOR_BUFFER_BIT);
 
     appLoop(gl);
