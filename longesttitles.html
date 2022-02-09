@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+
+
+    <!-- Material Design for Bootstrap fonts and icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+
+    <link rel="shortcut icon" href="/static/icon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/static/icon/favicon.ico" type="image/x-icon">
+
+    
+    <link href="/static/css/markdown-editor/markdown-editor.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="/static/plugins/highlight/highlight.min.css" media="all" rel="stylesheet" type="text/css"/>
+    <script src="/static/plugins/markdown-it/markdown-it.min.js" type="text/javascript"></script>
+    <script src="/static/plugins/markdown-it/markdown-it-deflist.min.js" type="text/javascript"></script>
+    <script src="/static/plugins/markdown-it/markdown-it-footnote.min.js" type="text/javascript"></script>
+    <script src="/static/plugins/markdown-it/markdown-it-abbr.min.js" type="text/javascript"></script>
+    <script src="/static/plugins/markdown-it/markdown-it-sub.min.js" type="text/javascript"></script>
+    <script src="/static/plugins/markdown-it/markdown-it-sup.min.js" type="text/javascript"></script>
+    <script src="/static/plugins/markdown-it/markdown-it-ins.min.js" type="text/javascript"></script>
+    <script src="/static/plugins/markdown-it/markdown-it-mark.min.js" type="text/javascript"></script>
+    <script src="/static/plugins/markdown-it/markdown-it-smartarrows.min.js" type="text/javascript"></script>
+    <script src="/static/plugins/markdown-it/markdown-it-checkbox.min.js" type="text/javascript"></script>
+    <script src="/static/plugins/markdown-it/markdown-it-cjk-breaks.min.js" type="text/javascript"></script>
+    <script src="/static/plugins/markdown-it/markdown-it-emoji.min.js" type="text/javascript"></script>
+    <script src="http://twemoji.maxcdn.com/2/twemoji.min.js?11.0"></script>
+    <script src="/static/plugins/highlight/highlight.min.js" type="text/javascript"></script>
+    <script src="/static/js/markdown-editor/markdown-editor.js" type="text/javascript"></script>
+
+
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm mb-3">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="/webgl_demo.html">WebGL Demo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    
+    <main role="main">
+
+        <!-- Render all 'flashed' messages. -->
+        
+
+        <!-- Override me in the implementation documents! -->
+        
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><b>The Longest Titles in Sea of Thieves</b></h3>
+                <p class="card-text"> <span class="flask-moment" data-timestamp="2022-01-17T00:00:00Z" data-function="format" data-format="LL" data-refresh="0" style="display: none">2022-01-17T00:00:00Z</span></p>
+            </div>
+
+            <div class="card-body">
+                <div id="page-body">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </main>
+
+
+    
+    
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js" integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ==" crossorigin="anonymous"></script>
+<script>
+moment.locale("en");
+function flask_moment_render(elem) {
+    const timestamp = moment(elem.dataset.timestamp);
+    const func = elem.dataset.function;
+    const format = elem.dataset.format;
+    const timestamp2 = elem.dataset.timestamp2;
+    const no_suffix = elem.dataset.nosuffix;
+    const units = elem.dataset.units;
+    let args = [];
+    if (format)
+        args.push(format);
+    if (timestamp2)
+        args.push(moment(timestamp2));
+    if (no_suffix)
+        args.push(no_suffix);
+    if (units)
+        args.push(units);
+    elem.textContent = timestamp[func].apply(timestamp, args);
+    elem.classList.remove('flask-moment');
+    elem.style.display = "";
+}
+function flask_moment_render_all() {
+    const moments = document.querySelectorAll('.flask-moment');
+    moments.forEach(function(moment) {
+        flask_moment_render(moment);
+        const refresh = moment.dataset.refresh;
+        if (refresh && refresh > 0) {
+            (function(elem, interval) {
+                setInterval(function() {
+                    flask_moment_render(elem);
+                }, interval);
+            })(moment, refresh);
+        }
+    })
+}
+document.addEventListener("DOMContentLoaded", flask_moment_render_all);
+</script>
+
+    <script>
+        const markdownItOptions = {
+            html: false,
+            xhtmlOut: true,
+            breaks: true,
+            linkify: true,
+            typographer: true,
+            highlight: function (code) {
+                return window.hljs ? window.hljs.highlightAuto(code).value : code;
+            }
+        };
+        const markdownItPlugins = {
+            markdownitDeflist: {},
+            markdownitFootnote: {},
+            markdownitAbbr: {},
+            markdownitEmoji: {},
+            markdownitSub: {},
+            markdownitSup: {},
+            markdownitMark: {},
+            markdownitIns: {},
+            markdownitSmartArrows: {},
+            markdownitCheckbox: {
+                divWrap: true,
+                divClass: 'form-check checkbox',
+                idPrefix: 'cbx_'
+            },
+            markdownitCjkBreaks: {}
+        };
+        const markdownItDisabledRules = [];
+        const useTwemoji = true;
+        const postProcess = {
+            '<table>': '<table class="table table-bordered table-striped">',
+            '<pre>': '<pre class="md-codeblock">',
+            '<blockquote>': '<blockquote class="blockquote md-blockquote">',
+            '<input type="checkbox"': '<input type="checkbox" class="form-check-input"',
+            '<label for="cbx': '<label class="form-check-label" for="cbx'
+        };
+        const md = window.markdownit(markdownItOptions);
+
+        $.each(markdownItPlugins, function (plugin, opts) {
+            if (window[plugin]) {
+                md.use(window[plugin], opts);
+                console.log("plugin used=" + plugin);
+            }
+        });
+
+        const EMPTY = '';
+        isEmpty = function (value, trim) {
+            return value === null || value === undefined || value.length === 0 || trim && $.trim(value) === EMPTY;
+        };
+
+        if (!isEmpty(markdownItDisabledRules)) {
+            md.disable(markdownItDisabledRules);
+        }
+
+        parseOutput = function (data) {
+            $.each(postProcess, function (key, val) {
+                if (key !== val) {
+                    data = data.split(key).join(val);
+                }
+            });
+            return data;
+        };
+
+        parserMethod = function (data) {
+            md.renderer.rules.emoji = function (token, idx) {
+                return useTwemoji && window.twemoji ? window.twemoji.parse(token[idx].content) :
+                    '<span class="md-emoji">' + token[idx].content + '</span>';
+            };
+
+            md.renderer.rules.paragraph_open = md.renderer.rules.heading_open =
+                function (tokens, idx, options, env, slf) {
+                    var line;
+                    if (tokens[idx].map && tokens[idx].level === 0) {
+                        line = tokens[idx].map[0];
+                        tokens[idx].attrJoin('class', 'md-line');
+                        tokens[idx].attrSet('data-line', String(line));
+                    }
+                    return slf.renderToken(tokens, idx, options, env, slf);
+                };
+            return md.render(data);
+        };
+
+        markdownInput = "###### Here is the code used to scrape the titles from [This wiki](https://seaofthieves.fandom.com/wiki/Titles).\n~~~java\n\nimport org.jsoup.Jsoup;\nimport org.jsoup.nodes.Document;\nimport org.jsoup.nodes.Element;\nimport org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\n\nimport java.io.IOException;\nimport java.util.ArrayList;\nimport java.util.Comparator;\nimport java.util.List;\nimport java.util.stream.Collectors;\n\npublic class SotTitles {\n\n    private static final String SOT_TITLES_URL = \"https://seaofthieves.fandom.com/wiki/Titles\";\n\n    private static final Logger LOGGER = LoggerFactory.getLogger(SotTitles.class);\n\n    public static void main(String[] args) {\n        List\u003cString\u003e titles = findTitles(SOT_TITLES_URL);\n        LOGGER.info(titles.stream()\n                .sorted(Comparator.comparing(String::length))\n                .map(SotTitles::formatTitle)\n                .collect(Collectors.joining(\"\\n\")));\n    }\n\n    private static List\u003cString\u003e findTitles(String sotTitleUrl) {\n        List\u003cString\u003e titles = new ArrayList\u003c\u003e();\n        try {\n            Document doc = Jsoup.connect(sotTitleUrl).get();\n            for (Element table : doc.select(\"table[class]\")) {\n                for (Element title : table.select(\"span[id]\")) {\n                    titles.add(title.text());\n                }\n            }\n        } catch (IOException e) {\n            LOGGER.error(String.format(\"Unable to find titles for page: %s\", sotTitleUrl), e);\n        }\n        return titles;\n    }\n\n    private static String formatTitle(String title) {\n        return String.format(\"[%d] %s\", title.length(), title);\n    }\n\n}\n~~~\n---\nThese are the longest since **February 8th, 2022**\n\n[9] Arena Pup\n[9] Arena Fox\n[9] Rare Crew\n[10] Gold Bucko\n[10] Arena Mutt\n[10] Arena Wolf\n[10] Ratcatcher\n[11] Gold Hauler\n[11] Gold Seadog\n[11] Arena Hound\n[11] Rare Legend\n[12] Gold Swabbie\n[12] Gold Magnate\n[12] Gold Captain\n[12] Mystic Chief\n[12] Arena Jackal\n[12] Arena Coyote\n[12] Arena Master\n[12] Iron Sea Dog\n[12] Pirate Dandy\n[12] Shark Hunter\n[12] Shark Slayer\n[12] Death Defier\n[12] Relic Hunter\n[12] Skull Keeper\n[12] Ashen Seeker\n[13] Gold Picaroon\n[13] Mystic Hunter\n[13] Pirate Legend\n[13] Arena Terrier\n[13] Arena Bulldog\n[13] Rugged Hunter\n[13] Master Hunter\n[13] Pirate Menace\n[13] People Pirate\n[13] Hunter\u0027s Hero\n[13] Curse Breaker\n[14] Gold Buccaneer\n[14] Gold Sovereign\n[14] Golden Voyager\n[14] Mystic Acolyte\n[14] Mystic Captain\n[14] Mystic Grandee\n[14] Merchant Cadet\n[14] Merchant Bosun\n[14] Master of Arms\n[14] Maiden Voyager\n[14] Pirate Mingler\n[14] Mischief Maker\n[14] Drunken Sailor\n[14] Bounty Bringer\n[14] Tale Whisperer\n[14] Brave Vanguard\n[14] Giver of Gifts\n[15] Mystic Follower\n[15] Merchant Sailor\n[15] Master Merchant\n[15] Gilded Merchant\n[15] Legendary Thief\n[15] Deadeye Sea Dog\n[15] Tempered Hunter\n[15] Seasoned Hunter\n[15] Hardened Hunter\n[15] Seasoned Pirate\n[15] Seeker of Tales\n[15] Hero of Thrones\n[15] Scholar of Fire\n[15] Relic Collector\n[15] Tribute Bringer\n[16] Mystic Associate\n[16] Mystic Mercenary\n[16] Merchant Mariner\n[16] Merchant Officer\n[16] Merchant Captain\n[16] Merchant Admiral\n[16] Eminent Merchant\n[16] Merchant Voyager\n[16] Merchant Forager\n[16] Athena\u0027s Voyager\n[16] Glorious Sea Dog\n[16] Fledgling Hunter\n[16] Weathered Hunter\n[16] Toughened Hunter\n[16] Barnacled Hunter\n[16] Shipshape Pirate\n[16] Fanatical Fisher\n[16] Scholar of Power\n[16] Bone Haul Bearer\n[16] Bone Haul Bandit\n[17] Mystic Apprentice\n[17] Seer of the Order\n[17] Sage of the Order\n[17] Esteemed Merchant\n[17] Legendary Sea Dog\n[17] Hunter of Pondies\n[17] Dashing Daredevil\n[17] Legend of the Sun\n[17] Champion of Souls\n[17] Friend of the Sea\n[17] Master of Thrones\n[17] Skeleton Exploder\n[17] Scholar of Curses\n[17] Golden Benefactor\n[17] Mystic Benefactor\n[17] Merchant of Death\n[18] Magus of the Order\n[18] Merchant Commander\n[18] Cast Iron Merchant\n[18] Legend of the Deep\n[18] Triumphant Sea Dog\n[18] Hunter of Wreckers\n[18] Pirate Storyteller\n[18] Treasured Deckhand\n[18] Raging Firestarter\n[19] Master Gold Hoarder\n[19] Seeker of Lost Maps\n[19] Master of the Order\n[19] Merchant Lieutenant\n[19] Prosperous Merchant\n[19] Merchant Adventurer\n[19] Merchant Shipwright\n[19] Merchant Rum Runner\n[19] Treacherous Sea Dog\n[19] Acclimatized Hunter\n[19] Hunter of Devilfish\n[19] Bearer of the Flame\n[19] Keeper of the Flame\n[19] Warden of the Flame\n[19] Master of the Flame\n[19] Rogue of the Shroud\n[19] Prizewinning Pirate\n[19] Glorious Gift-Giver\n[19] Master Cargo Runner\n[19] Merchant Benefactor\n[20] Shining Gold Hoarder\n[20] Radiant Gold Hoarder\n[20] Seeker of Lost Souls\n[20] Industrious Merchant\n[20] High Calibre Sea Dog\n[20] Hunter of Plentifins\n[20] Devotee of the Flame\n[20] Servant of the Flame\n[20] Steward of the Flame\n[20] Bringer of the Flame\n[20] Sailor of the Shroud\n[20] Master of the Shroud\n[20] Legend of the Shroud\n[20] Supreme Fated Slayer\n[20] Master Curse Breaker\n[20] Devil\u0027s Cartographer\n[20] Legend of The Damned\n[20] Master Kraken Hunter\n[20] Raider of the Damned\n[20] Chronicler of Legend\n[20] The Wandering Reaper\n[20] The Shipwreck Reaper\n[21] Gleaming Gold Hoarder\n[21] Lustrous Gold Hoarder\n[21] Conjurer of the Order\n[21] Voyager of Lost Souls\n[21] Hunter of Foul Skulls\n[21] Hunter of Fort Skulls\n[21] Scourge of the Damned\n[21] Enterprising Merchant\n[21] Black Powder Merchant\n[21] Merchant of Manifests\n[21] Merchant of Mysteries\n[21] Sharpshooting Sea Dog\n[21] Swashbuckling Sea Dog\n[21] Hunter of Splashtails\n[21] Hunter of Islehoppers\n[21] Hunter of Battlegills\n[21] Hunter of Stormfishes\n[21] Hunter of Trophy Fish\n[21] Follower of the Flame\n[21] Disciple of the Flame\n[21] Luminary of the Flame\n[21] Exemplar of the Flame\n[21] Defender of the Flame\n[21] Guardian of the Flame\n[21] Champion of the Flame\n[21] Captain of the Shroud\n[21] Master of Festivities\n[21] Pirate Philanthropist\n[21] Legend of Cursed Iron\n[21] Banisher of the Flame\n[21] Warsmith of the Flame\n[22] Enchanter of the Order\n[22] Hunter of Cursed Crews\n[22] Chief of Stray Spirits\n[22] Cadet of Curious Cargo\n[22] Legend of Black Powder\n[22] Legendary Gold Hoarder\n[22] Hunter of Wildsplashes\n[22] Hunter of the Wild Hog\n[22] Castaway of the Shroud\n[22] Seafarer of the Shroud\n[22] Shipmate of the Shroud\n[22] Marauder of the Shroud\n[22] Legend of Ancient Gold\n[22] Reaper of Fallen Flags\n[22] Emissary of Excellence\n[22] Protector of The Wilds\n[22] Seeker of the Warsmith\n[22] Master Devil\u0027s Voyager\n[22] Legendary Cargo Runner\n[23] Glittering Gold Hoarder\n[23] Merchant of Grand Fauna\n[23] Seeker of Silvered Loot\n[23] Keeper of Silvered Loot\n[23] Hunter of Ancientscales\n[23] Hunter of the Great Maw\n[23] Commander of the Shroud\n[23] Rogue of the Ocean Deep\n[23] Destroyer of the Damned\n[23] Legendary Curse Breaker\n[23] Legendary Kraken Hunter\n[23] Hunter of The Shadowmaw\n[23] Golden Skeleton Captain\n[23] Scholar of Resurrection\n[24] Seeker of Ancient Vaults\n[24] Hunter of Hateful Skulls\n[24] Chief of Sundered Skulls\n[24] Grandee of Stray Spirits\n[24] Chief of Fated Foresight\n[24] Merchant of the Wild Hog\n[24] Merchant of Forsaken Rum\n[24] Admiral of Curious Cargo\n[24] Cadet of Precision Plans\n[24] Voyager of Sworn Secrets\n[24] Voyager of Ghostly Glory\n[24] Sailor of the Ocean Deep\n[24] Master of the Ocean Deep\n[24] Legend of the Ocean Deep\n[24] Castaway of Ancient Gold\n[24] Shipmate of Ancient Gold\n[24] Collector of Cursed Gems\n[24] Master Skeleton Exploder\n[24] Legendary Cursed Voyager\n[24] Legend of Thieves\u0027 Haven\n[25] Hoarder of Barnacled Gold\n[25] Hoarder of Lost Artefacts\n[25] Captain of Sealed Stashes\n[25] Hunter of Cursed Captains\n[25] Emissary of Mystic Chiefs\n[25] Chief of Ghostly Galleons\n[25] Merchant of Forsaken Silk\n[25] Legendary Treasure Hunter\n[25] Legendary Merchant Trader\n[25] Voyager of Pirate Prowess\n[25] Guardian of Sworn Secrets\n[25] Guardian of Ghostly Glory\n[25] Sailor of Silvered Waters\n[25] Master of Silvered Waters\n[25] Hunter of the Dawn Caller\n[25] Hunter of Sharpened Teeth\n[25] Keeper of Taken Treasures\n[25] Master of Taken Treasures\n[25] Keeper of Masked Mystique\n[25] Master of Masked Mystique\n[25] Captain of the Ocean Deep\n[25] Rogue of the Blue Horizon\n[25] Mystical Skeleton Captain\n[26] Sailor of the Gold Horizon\n[26] Hoarder of Treasured Tears\n[26] Emissary of Gold Seafarers\n[26] Emissary of Gold Marauders\n[26] Seafarer of Sealed Stashes\n[26] Marauder of Sealed Stashes\n[26] Captain of Rogues\u0027 Riddles\n[26] Hunter of Disgraced Skulls\n[26] Grandee of Sundered Skulls\n[26] Mercenary of Stray Spirits\n[26] Grandee of Fated Foresight\n[26] Merchant of Forsaken Flora\n[26] Commander of Curious Cargo\n[26] Cadet of Triumphant Trades\n[26] Admiral of Precision Plans\n[26] Seeker of Athena\u0027s Fortune\n[26] Sailor of Athena\u0027s Fortune\n[26] Legendary Merchant of Bone\n[26] Guardian of Pirate Prowess\n[26] Voyager of Valiant Vessels\n[26] Captain of Silvered Waters\n[26] Keeper of Splintered Ships\n[26] Master of Splintered Ships\n[26] Servant of Taken Treasures\n[26] Keeper of Fearless Freedom\n[26] Master of Fearless Freedom\n[26] Servant of Masked Mystique\n[26] Castaway of the Ocean Deep\n[26] Seafarer of the Ocean Deep\n[26] Shipmate of the Ocean Deep\n[26] Marauder of the Ocean Deep\n[26] Sailor of the Blue Horizon\n[26] Master of the Blue Horizon\n[26] Legend of the Blue Horizon\n[26] Seeker of Reaper\u0027s Tribute\n[27] Hoarder of Grog Soaked Gold\n[27] Hoarder of Ancient Tributes\n[27] Seafarer of Rogues\u0027 Riddles\n[27] Marauder of Rogues\u0027 Riddles\n[27] Captain of Recovered Riches\n[27] Hunter of Villainous Skulls\n[27] Grandee of Ghostly Galleons\n[27] Merchant of the Dawn Caller\n[27] Merchant of the Flora Trade\n[27] Emissary of Merchant Cadets\n[27] Cadet of Salvaged Shipments\n[27] Hoarder of Athena\u0027s Fortune\n[27] Legendary Merchant of Fauna\n[27] Legendary Pirate of Prowess\n[27] Guardian of Valiant Vessels\n[27] Captain of The Killer Whale\n[27] Emissary of Eternal Keepers\n[27] Servant of Splintered Ships\n[27] Servant of Fearless Freedom\n[27] Commander of the Ocean Deep\n[27] Captain of the Blue Horizon\n[27] Legend of the Siren\u0027s Wrath\n[27] Fated Slayer of Wild Shores\n[27] Fated Slayer of Wide Renown\n[27] Renowned Artist of the Seas\n[27] Legendary Skeleton Exploder\n[27] Bearer of the Reaper\u0027s Mark\n[27] Hunter of The Hungering One\n[27] Hunter of The Crested Queen\n[27] Master of Stronghold Spoils\n[27] Hoarder of Mermaid Treasure\n[28] Keeper of a Glittering Hoard\n[28] Captain of Golden Emissaries\n[28] Captain of Vaulted Valuables\n[28] Seafarer of Recovered Riches\n[28] Marauder of Recovered Riches\n[28] Raider of Cursed Strongholds\n[28] Grandee of Mystic Emissaries\n[28] Mercenary of Sundered Skulls\n[28] Mercenary of Fated Foresight\n[28] Merchant of the Silken Trade\n[28] Admiral of Triumphant Trades\n[28] Commander of Precision Plans\n[28] Guardian of Athena\u0027s Fortune\n[28] Champion of Athena\u0027s Fortune\n[28] Legend of the Mystical Order\n[28] Legend of The Sea of Thieves\n[28] Emissary of Fortune Voyagers\n[28] Master Hunter of Trophy Fish\n[28] Hunter of the Sea of Thieves\n[28] Emissary of Eternal Servants\n[28] Master of Eternal Emissaries\n[28] Sailor of the Shores of Gold\n[28] Castaway of the Blue Horizon\n[28] Seafarer of the Blue Horizon\n[28] Shipmate of the Blue Horizon\n[28] Marauder of the Blue Horizon\n[28] Fated Slayer of Raging Skies\n[28] Invader of Glittering Vaults\n[28] Inspiring Artist of the Seas\n[28] Visionary Artist of the Seas\n[28] Hunter of The Ancient Terror\n[28] Hunter of The Shrouded Ghost\n[28] Legend of the Sunken Kingdom\n[28] Beholder of Buried Treasures\n[29] Hoarder of the Captain\u0027s Gold\n[29] Seafarer of Vaulted Valuables\n[29] Marauder of Vaulted Valuables\n[29] Mercenary of Ghostly Galleons\n[29] Admiral of Salvaged Shipments\n[29] Collector of Legendary Relics\n[29] Collector of Legendary Skulls\n[29] Emissary of Fortune Guardians\n[29] Legendary Emissary of Fortune\n[29] Hunter of the Serpent\u0027s Scale\n[29] Hunter of the Monstrous Beast\n[29] Hunter of Treacherous Plunder\n[29] Commander of the Blue Horizon\n[29] Castaway of the Siren\u0027s Wrath\n[29] Shipmate of the Siren\u0027s Wrath\n[29] Fated Slayer of Ancient Sands\n[29] Noteworthy Artist of the Seas\n[30] Hoarder of the Castaway\u0027s Gold\n[30] Hoarder of the Seafarer\u0027s Gold\n[30] Hoarder of the Marauder\u0027s Gold\n[30] Mercenary of the Ancient Order\n[30] Sailor of the Whispering Bones\n[30] Banisher of the Spectral Flame\n[30] Emissary of Mystic Mercenaries\n[30] Admiral of Merchant Emissaries\n[30] Commander of Triumphant Trades\n[30] Collector of Legendary Voyages\n[30] Fated Slayer of Dauntless Fury\n[30] Protector of The Ancient Isles\n[31] Sailor of the Merchant Alliance\n[31] Merchant of the Serpent\u0027s Scale\n[31] Emissary of Merchant Commanders\n[31] Commander of Salvaged Shipments\n[31] Collector of Legendary Chalices\n[31] Legendary Hunter of Trophy Fish\n[31] Accomplished Artist of the Seas\n[32] Golden Legend of the Strongholds\n[32] Conqueror of the Skeleton Fleets\n[33] Legendary Hunter of The Shadowmaw\n[33] Legendary Pirate of Sworn Secrets\n[33] Legendary Pirate of Ghostly Glory\n[33] Protector of The Shores of Plenty\n[34] Mystical Legend of the Strongholds\n[35] Collector of Legendary Black Powder\n[35] Legendary Pirate of Valiant Vessels\n[35] Master Hunter of the Sea of Thieves\n[37] Legendary Hunter of The Hungering One\n[37] Legendary Hunter of The Crested Queen\n[38] Legendary Hunter of The Ancient Terror\n[38] Legendary Hunter of the Shrouded Ghost\n[38] Legendary Hunter of the Sea of Thieves\n[38] Legendary Westward Black Powder Reaper\n[38] Legendary Eastward Black Powder Reaper\n[40] Collector of Legendary Villainous Skulls";
+        const result = parseOutput(parserMethod(markdownInput));
+        document.getElementById('page-body').innerHTML = result;
+    </script>
+
+  </body>
+</html>
