@@ -1,39 +1,105 @@
 <!DOCTYPE html>
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- Required meta tags -->
+<html lang="en" data-bs-theme="light">
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>404 - Not Found</title>
 
-
-    <!-- Material Design for Bootstrap fonts and icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    
+    <!-- Bootswatch themes: Flatly (light mode) and Darkly (dark mode). -->
+    <!-- Any <link> with data-theme-light/data-theme-dark is swapped by the theme switch in the navbar. -->
+    <link rel="stylesheet" id="bootstrap-theme"
+          href="/static/css/styles/flatly-bootstrap.min.css"
+          data-theme-light="/static/css/styles/flatly-bootstrap.min.css"
+          data-theme-dark="/static/css/styles/darkly-bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <link rel="shortcut icon" href="/static/icon/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/static/icon/favicon.ico" type="image/x-icon">
-
-  </head>
-  <body>
+    <style>
+        /* A checked switch is primary-colored by default, which matches the navbar and hides the track. */
+        #themeSwitch:checked {
+            background-color: var(--bs-success);
+            border-color: var(--bs-success);
+        }
+        /* Theme switch label: show only the text for the active mode. */
+        html[data-bs-theme="light"] .theme-label-dark,
+        html[data-bs-theme="dark"] .theme-label-light {
+            display: none;
+        }
+    </style>
     
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm mb-3">
-        <a class="navbar-brand" href="/">Home</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="/webgl_demo.html">WebGL Demo</a></li>
-            </ul>
+    <!-- Apply the saved theme before the page paints, so dark mode doesn't flash light on load. -->
+    <script>
+        window.blogTheme = (function () {
+            var STORAGE_KEY = 'theme';
+
+            function apply(theme) {
+                document.documentElement.setAttribute('data-bs-theme', theme);
+                document.querySelectorAll('link[data-theme-' + theme + ']').forEach(function (link) {
+                    var href = link.getAttribute('data-theme-' + theme);
+                    if (link.getAttribute('href') !== href) {
+                        link.setAttribute('href', href);
+                    }
+                });
+            }
+
+            function saved() {
+                try {
+                    return localStorage.getItem(STORAGE_KEY) === 'dark' ? 'dark' : 'light';
+                } catch (e) {
+                    return 'light';
+                }
+            }
+
+            function set(theme) {
+                apply(theme);
+                try {
+                    localStorage.setItem(STORAGE_KEY, theme);
+                } catch (e) { /* storage unavailable: theme still applies for this page */ }
+            }
+
+            apply(saved());
+            return { current: saved, set: set };
+        })();
+    </script>
+</head>
+<body>
+
+<!-- Here is the navigation bar that we will be updating to contain links for our pages. -->
+
+    <nav class="navbar navbar-expand-lg bg-primary mb-3" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="/webgl_demo.html">WebGL Demo</a></li>
+                </ul>
+
+                <!-- Light/dark mode switch (Flatly <-> Darkly). -->
+                <div class="form-check form-switch navbar-text mb-0">
+                    <input class="form-check-input" type="checkbox" role="switch" id="themeSwitch">
+                    <!-- Shows the active mode; CSS picks the span from <html data-bs-theme>. -->
+                    <label class="form-check-label" for="themeSwitch">
+                        <span class="theme-label-light"><i class="fas fa-sun" aria-hidden="true"></i> Light mode</span>
+                        <span class="theme-label-dark"><i class="fas fa-moon" aria-hidden="true"></i> Dark mode</span>
+                    </label>
+                </div>
+            </div>
         </div>
     </nav>
 
-    
+
+<!-- The content block holds a main element and a page_content block -->
+<!-- which is overridden by the implementation documents. -->
+
     <main role="main">
 
         <!-- Render all 'flashed' messages. -->
@@ -41,7 +107,7 @@
 
         <!-- Override me in the implementation documents! -->
         
-    <div class="page-header">
+    <div class="container py-5">
         <h1 class="text-center">404 - Not Found</h1>
         <p class="text-center">Unfortunately, the page you are trying to view could not be found.</p>
     </div>
@@ -49,16 +115,37 @@
     </main>
 
 
-    
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
-    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js" integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ==" crossorigin="anonymous"></script>
+    <footer class="text-center py-4 mt-4">
+        <a href="https://github.com/bran-williams" class="btn btn-primary rounded-circle d-inline-flex
+           align-items-center justify-content-center" style="width: 2.75rem; height: 2.75rem;" aria-label="GitHub">
+            <i class="fab fa-github fa-lg"></i>
+        </a>
+    </footer>
+
+
+<!-- Bootstrap 5 JS (bundled with Popper; version matches the Bootswatch themes). jQuery is kept for the page scripts. -->
+<!-- Moment.js converts UTC date/time to the locale of the user. -->
+
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        (function () {
+            const themeSwitch = document.getElementById('themeSwitch');
+            if (!themeSwitch) {
+                return;
+            }
+            themeSwitch.checked = window.blogTheme.current() === 'dark';
+            themeSwitch.addEventListener('change', function () {
+                window.blogTheme.set(themeSwitch.checked ? 'dark' : 'light');
+            });
+        })();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js" integrity="sha512-42PE0rd+wZ2hNXftlM78BSehIGzezNeQuzihiBCvUEB3CVxHvsShF86wBWwQORNxNINlBPuq7rG4WWhNiTVHFg==" crossorigin="anonymous"></script>
+
 <script>
 moment.locale("en");
-function flask_moment_render(elem) {
+function flask_moment_render(elem) {{
     const timestamp = moment(elem.dataset.timestamp);
     const func = elem.dataset.function;
     const format = elem.dataset.format;
@@ -77,23 +164,24 @@ function flask_moment_render(elem) {
     elem.textContent = timestamp[func].apply(timestamp, args);
     elem.classList.remove('flask-moment');
     elem.style.display = "";
-}
-function flask_moment_render_all() {
+}}
+function flask_moment_render_all() {{
     const moments = document.querySelectorAll('.flask-moment');
-    moments.forEach(function(moment) {
+    moments.forEach(function(moment) {{
         flask_moment_render(moment);
         const refresh = moment.dataset.refresh;
-        if (refresh && refresh > 0) {
-            (function(elem, interval) {
-                setInterval(function() {
+        if (refresh && refresh > 0) {{
+            (function(elem, interval) {{
+                setInterval(function() {{
                     flask_moment_render(elem);
-                }, interval);
-            })(moment, refresh);
-        }
-    })
-}
+                }}, interval);
+            }})(moment, refresh);
+        }}
+    }})
+}}
 document.addEventListener("DOMContentLoaded", flask_moment_render_all);
 </script>
 
-  </body>
+
+</body>
 </html>
